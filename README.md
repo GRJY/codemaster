@@ -20,10 +20,10 @@ Modern, güvenli ve kullanıcı dostu kod analiz platformu. Gemini AI ile kodunu
 ### 🌐 Dil Seçimi
 ![Gece Modu](screenshots/06-dark-mode.png)
 
-### 📱 Mobil Görünüm
+### 📐 Resizer Bar Durum 1
 ![Mobil Görünüm](screenshots/07-mobile-view.png)
 
-### 📐 Responsive Tasarım
+### 📐 Resizer Bar Durum 2
 ![Responsive Tasarım](screenshots/08-responsive-design.png)
 
 **Ekran resmi eklemek için:**
