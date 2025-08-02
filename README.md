@@ -8,10 +8,10 @@ Modern, güvenli ve kullanıcı dostu kod analiz platformu. Gemini AI ile kodunu
 ### 💻 Kod Analiz Ekranı
 ![Kod Editörü](screenshots/02-code-editor.png)
 
-### 📊 Analiz Sonuçları
+### 📊 Analiz Sonuçları Bilgi Bölümü
 ![Analiz Sonuçları](screenshots/03-analysis-results.png)
 
-### 📚 Sidebar ve Geçmiş
+### 📊 Analiz Sonuçları Kod Bölümü
 ![Sidebar ve Geçmiş](screenshots/04-sidebar-history.png)
 
 ### 🌐 Dil Seçimi
