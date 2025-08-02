@@ -270,17 +270,6 @@ npm test
    - Ek güvenlik önlemleri ekleyin
    - Monitoring'i güçlendirin
 
-4. **Bildirim**
-   - Kullanıcıları bilgilendirin
-   - Gerekirse yasal otoritelere bildirin
-
-## 📞 Güvenlik İletişimi
-
-Güvenlik sorunları için:
-- **Email**: security@yourdomain.com
-- **Güvenlik Raporu**: https://yourdomain.com/security
-- **Responsible Disclosure**: 30 gün içinde yanıt
-
 ## 📚 Ek Kaynaklar
 
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
