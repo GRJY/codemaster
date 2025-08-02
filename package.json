@@ -1,0 +1,56 @@
+{
+  "name": "codemaster",
+  "version": "1.0.0",
+  "description": "Modern ve kullanıcı dostu kod analiz platformu",
+  "type": "module",
+  "keywords": ["code-analysis", "ai", "gemini", "javascript", "python", "java", "web-app"],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "babel-jest": "^29.7.0",
+    "firebase": "^10.12.3",
+    "jest": "^30.0.5",
+    "jest-environment-jsdom": "^30.0.5"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "lint": "echo 'Linting not configured yet'",
+    "build": "echo 'No build process needed'"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "^https://www.gstatic.com/firebasejs/11\\.6\\.1/(.*\\.js)$": "<rootDir>/__mocks__/$1",
+      "^https://cdn\\.jsdelivr\\.net/npm/marked/lib/marked\\.esm\\.js$": "<rootDir>/__mocks__/marked.esm.js"
+    }
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kullaniciadi/codemaster.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kullaniciadi/codemaster/issues"
+  },
+  "homepage": "https://github.com/kullaniciadi/codemaster#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}

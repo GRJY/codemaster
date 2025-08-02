@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CodeMaster - Gelişmiş Kod Analiz Sistemi</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Inter Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans antialiased overflow-hidden">
+
+    <!-- Modern Loading Overlay -->
+    <div id="shimmer-overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+        <div class="bg-theme-surface border border-theme-border rounded-2xl p-8 shadow-2xl max-w-md w-full mx-4">
+            <div class="text-center">
+                <!-- Animated Code Icon -->
+                <div class="mb-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-4 animate-pulse">
+                        <i class="fas fa-code text-2xl text-white"></i>
+                    </div>
+                </div>
+                
+                <!-- Title and Description -->
+                <h3 class="text-xl font-semibold text-theme-primary mb-3">Kod Analiz Ediliyor</h3>
+                <p class="text-theme-secondary mb-6">AI gücüyle kodunuz detaylı olarak inceleniyor...</p>
+                
+                <!-- Modern Progress Bar -->
+                <div class="w-full bg-theme-border rounded-full h-2 mb-4 overflow-hidden">
+                    <div class="loading-progress-bar h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse"></div>
+                </div>
+                
+                <!-- Loading Dots -->
+                <div class="flex justify-center space-x-1">
+                    <div class="loading-dot w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
+                    <div class="loading-dot w-2 h-2 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                    <div class="loading-dot w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="flex h-screen">
+        
+        <!-- Slideable Sidebar -->
+        <aside id="sidebar" class="sidebar-theme shadow-lg flex-shrink-0 flex flex-col transition-all duration-300 ease-in-out" style="width: 320px;">
+            
+            <!-- Sidebar Header -->
+            <div class="sidebar-header flex items-center justify-between p-4 border-b border-theme-border">
+                <div class="flex items-center space-x-3">
+                    <button id="sidebar-toggle" class="sidebar-toggle-btn p-2 hover:bg-theme-border transition-colors" title="Menüyü Aç/Kapat" style="z-index: 50;">
+                        <i class="fas fa-bars text-theme-primary text-lg"></i>
+                    </button>
+                    <div class="sidebar-title">
+                        <h1 class="text-lg font-bold text-theme-primary">CodeMaster</h1>
+                        <p class="text-xs text-theme-secondary">AI Kod Analizi</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="p-4 border-b border-theme-border">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Kod veya analiz ara..." 
+                           class="w-full px-4 py-2 pl-10 bg-theme-surface border border-theme-border rounded-lg text-theme-primary placeholder-theme-muted focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-theme-muted"></i>
+                </div>
+            </div>
+
+            <!-- Sidebar Content -->
+            <div class="sidebar-content flex-1 overflow-y-auto">
+                
+                <!-- New Analysis Button -->
+                <div class="p-4">
+                    <button id="new-analysis-btn" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-plus mr-2"></i>
+                        Yeni Analiz
+                    </button>
+                </div>
+
+                <!-- Premium Section -->
+                <div class="px-4 mb-4">
+                    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg p-3 text-white cursor-pointer hover:from-yellow-500 hover:to-orange-600 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-gem text-lg"></i>
+                                <span class="font-semibold">Premium Edinin</span>
+                            </div>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History Section -->
+                <div class="px-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-sm font-semibold text-theme-secondary uppercase tracking-wider flex items-center">
+                            <i class="fas fa-history mr-2"></i>
+                            Geçmiş Analizler
+                        </h3>
+                        <button id="clear-all-history-btn" class="text-xs text-red-400 hover:text-red-500 hover:bg-red-50/50 px-2 py-1 rounded transition-colors" title="Tüm analizleri sil">
+                            <i class="fas fa-trash-alt mr-1"></i>
+                            Tümünü Sil
+                        </button>
+                    </div>
+                    <div id="history-list" class="space-y-2">
+                        <!-- History items will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Footer -->
+            <div class="p-4 border-t border-theme-border">
+                <div class="text-center">
+                    <p class="text-xs text-theme-muted">Powered by Gemini AI</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Sidebar Resizer -->
+        <div id="sidebar-resizer" class="w-1 bg-theme-border hover:bg-blue-500 cursor-col-resize transition-colors"></div>
+        
+        <!-- Mobile Sidebar Overlay -->
+        <div class="sidebar-overlay lg:hidden"></div>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            
+            <!-- Top Bar -->
+            <header class="header-theme p-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <button id="sidebar-toggle-mobile" class="lg:hidden p-2 rounded-lg hover:bg-theme-border transition-colors">
+                            <i class="fas fa-bars text-theme-primary"></i>
+                        </button>
+                        <div class="flex items-center space-x-3">
+                            <!-- Main Logo -->
+                            <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-code text-white text-sm"></i>
+                            </div>
+                            
+                            <!-- Language Toggle Button -->
+                            <button id="header-language-toggle-btn" class="w-6 h-6 bg-theme-surface border border-theme-border rounded-md flex items-center justify-center hover:bg-theme-border transition-all duration-200">
+                                <i id="header-toggle-icon" class="fas fa-chevron-right text-theme-secondary text-xs transition-transform duration-300"></i>
+                            </button>
+                            
+                            <!-- Language Icons Panel -->
+                            <div id="header-language-panel" class="flex items-center space-x-2 opacity-0 invisible transform -translate-x-4 transition-all duration-300">
+                                <button class="header-language-icon-btn active" data-lang="javascript" title="JavaScript">
+                                    <i class="fab fa-js-square text-yellow-400 text-lg"></i>
+                                </button>
+                                <button class="header-language-icon-btn" data-lang="python" title="Python">
+                                    <i class="fab fa-python text-blue-400 text-lg"></i>
+                                </button>
+                                <button class="header-language-icon-btn" data-lang="java" title="Java">
+                                    <i class="fab fa-java text-red-400 text-lg"></i>
+                                </button>
+                                <button class="header-language-icon-btn" data-lang="csharp" title="C#">
+                                    <i class="fas fa-hashtag text-purple-400 text-lg"></i>
+                                </button>
+                                <button class="header-language-icon-btn" data-lang="php" title="PHP">
+                                    <i class="fab fa-php text-indigo-400 text-lg"></i>
+                                </button>
+                                <button class="header-language-icon-btn" data-lang="cpp" title="C++">
+                                    <i class="fas fa-code text-blue-500 text-lg"></i>
+                                </button>
+                                <button class="header-language-icon-btn" data-lang="c" title="C">
+                                    <i class="fas fa-microchip text-gray-400 text-lg"></i>
+                                </button>
+                                <button class="header-language-icon-btn" data-lang="go" title="Go">
+                                    <i class="fas fa-play text-cyan-400 text-lg"></i>
+                                </button>
+                                <button class="header-language-icon-btn" data-lang="rust" title="Rust">
+                                    <i class="fas fa-shield-alt text-orange-400 text-lg"></i>
+                                </button>
+                                <button class="header-language-icon-btn" data-lang="swift" title="Swift">
+                                    <i class="fab fa-swift text-orange-500 text-lg"></i>
+                                </button>
+                                <button class="header-language-icon-btn" data-lang="kotlin" title="Kotlin">
+                                    <i class="fas fa-star text-purple-500 text-lg"></i>
+                                </button>
+                                <button class="header-language-icon-btn" data-lang="typescript" title="TypeScript">
+                                    <i class="fab fa-js text-blue-600 text-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="flex items-center space-x-1 bg-green-100 rounded-lg p-2">
+                            <button class="status-indicator active" title="Bağlantı Aktif">
+                                <i class="fas fa-circle text-green-500 text-xs"></i>
+                            </button>
+                            <span class="text-xs text-green-700 font-medium">AI Hazır</span>
+                        </div>
+                        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-theme-border transition-colors" title="Tema Değiştir">
+                            <i class="fas fa-moon text-theme-primary text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+                
+                <!-- Code Editor Section -->
+                <div class="flex-1 flex flex-col p-4 lg:p-6">
+                    
+                    <!-- Code Editor -->
+                    <div class="flex-1 flex flex-col bg-theme-surface rounded-xl border border-theme-border overflow-hidden shadow-sm">
+                        <div class="flex items-center justify-between p-4 border-b border-theme-border">
+                            <h3 class="text-lg font-semibold text-theme-primary">Kod Editörü</h3>
+                            <div class="flex items-center space-x-2">
+                                <button id="clear-code-btn" class="px-3 py-1 text-sm text-theme-secondary hover:text-theme-primary hover:bg-theme-border rounded-lg transition-colors">
+                                    <i class="fas fa-trash mr-1"></i>
+                                    Temizle
+                                </button>
+                                <button id="analyze-btn" class="px-6 py-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
+                                    <i class="fas fa-magic mr-2"></i>
+                                    Analiz Et
+                                </button>
+                            </div>
+                        </div>
+                        <textarea id="code-editor" class="flex-1 p-4 font-mono text-sm resize-none focus:outline-none border-none" placeholder="Kodunuzu buraya yazın..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Content Resizer -->
+                <div id="content-resizer" class="w-1 bg-theme-border hover:bg-blue-500 cursor-col-resize transition-colors hidden lg:block"></div>
+                
+                <!-- Analysis Results Section -->
+                <div class="w-full lg:w-1/2 flex flex-col p-4 lg:p-6">
+                    
+                    <!-- Results Container -->
+                    <div class="flex-1 bg-theme-surface rounded-xl border border-theme-border overflow-hidden shadow-sm">
+                        <!-- Results Header with Toggle Buttons -->
+                        <div class="flex items-center justify-between p-4 border-b border-theme-border">
+                            <h3 class="text-lg font-semibold text-theme-primary">Analiz Sonuçları</h3>
+                            <div class="flex items-center space-x-2">
+                                <button id="toggle-info-btn" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors active">
+                                    <i class="fas fa-info-circle mr-1"></i>
+                                    Bilgi
+                                </button>
+                                <button id="toggle-code-btn" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors">
+                                    <i class="fas fa-code mr-1"></i>
+                                    Kod
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Results Content -->
+                        <div id="results-container" class="overflow-y-auto p-6">
+                            <div class="text-center text-theme-muted">
+                                <i class="fas fa-chart-line text-4xl mb-4"></i>
+                                <p>Analiz sonuçları burada görünecek</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Message Modal -->
+    <div id="message-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center hidden">
+        <div class="bg-theme-surface border border-theme-border rounded-xl p-6 max-w-md w-full mx-4 shadow-xl">
+            <div id="message-content" class="text-center">
+                <!-- Message content will be dynamically inserted here -->
+            </div>
+            <div class="mt-6 flex justify-center">
+                <button id="close-message-modal" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
+                    Tamam
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Script -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
