@@ -14,10 +14,10 @@ Modern, güvenli ve kullanıcı dostu kod analiz platformu. Gemini AI ile kodunu
 ### 📊 Analiz Sonuçları Kod Bölümü
 ![Sidebar ve Geçmiş](screenshots/04-sidebar-history.png)
 
-### 🌐 Dil Seçimi
+### ☀️ Gündüz Modu
 ![Dil Seçimi](screenshots/05-language-selection.png)
 
-### 🌙 Gece Modu
+### 🌐 Dil Seçimi
 ![Gece Modu](screenshots/06-dark-mode.png)
 
 ### 📱 Mobil Görünüm
