@@ -188,9 +188,7 @@ npm test -- --coverage     # Coverage raporu
 
 ## 📞 İletişim
 
-- **GitHub Issues**: [Issues](https://github.com/kullaniciadi/codemaster/issues)
-- **Discussions**: [Discussions](https://github.com/kullaniciadi/codemaster/discussions)
-- **Email**: ornek@email.com
+- **Email**: akbulutgiray@gmail.com
 
 ## 🙏 Teşekkürler
 
