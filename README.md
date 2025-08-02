@@ -187,14 +187,7 @@ Bu proje MIT lisansı altında lisanslanmıştır.
 
 ## 📞 İletişim
 
-- **GitHub**: [@kullaniciadi](https://github.com/kullaniciadi)
-- **Email**: ornek@email.com
-
-## 🙏 Teşekkürler
-
-- [Gemini AI](https://ai.google.dev/) - AI analiz gücü için
-- [Tailwind CSS](https://tailwindcss.com/) - CSS framework için
-- [Font Awesome](https://fontawesome.com/) - İkonlar için
+- **Email**: akbulutgiray@gmail.com
 
 ---
 
