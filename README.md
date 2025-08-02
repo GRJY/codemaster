@@ -5,7 +5,7 @@ Modern, güvenli ve kullanıcı dostu kod analiz platformu. Gemini AI ile kodunu
 ## 📸 Ekran Görüntüleri
 
 
-### 💻 Kod Editörü
+### 💻 Kod Analiz Ekranı
 ![Kod Editörü](screenshots/02-code-editor.png)
 
 ### 📊 Analiz Sonuçları
