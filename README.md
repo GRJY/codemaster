@@ -4,6 +4,8 @@ Modern, güvenli ve kullanıcı dostu kod analiz platformu. Gemini AI ile kodunu
 
 ## 📸 Ekran Görüntüleri
 
+### ☀️ Gündüz Modu / Ana Ekran
+![Dil Seçimi](screenshots/05-language-selection.png)
 
 ### 💻 Kod Analiz Ekranı
 ![Kod Editörü](screenshots/02-code-editor.png)
@@ -13,9 +15,6 @@ Modern, güvenli ve kullanıcı dostu kod analiz platformu. Gemini AI ile kodunu
 
 ### 📊 Analiz Sonuçları Kod Bölümü
 ![Sidebar ve Geçmiş](screenshots/04-sidebar-history.png)
-
-### ☀️ Gündüz Modu
-![Dil Seçimi](screenshots/05-language-selection.png)
 
 ### 🌐 Dil Seçimi
 ![Gece Modu](screenshots/06-dark-mode.png)
