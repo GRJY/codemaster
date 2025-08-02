@@ -1433,4 +1433,7 @@ export function updateUI() {
 }
 
 // Export for testing
-export { exampleCodes, getAnalysisPrompt };
+export { 
+    exampleCodes, 
+    getAnalysisPrompt
+};
