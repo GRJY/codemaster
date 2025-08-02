@@ -1,6 +1,38 @@
-# 🚀 CodeMaster - Gelişmiş Kod Analiz Sistemi
+# 🚀 CodeMaster - AI-Powered Code Analysis Platform
 
-Modern ve kullanıcı dostu bir kod analiz platformu. AI gücüyle kodunuzu analiz edin, iyileştirin ve geçmiş analizlerinizi yönetin.
+Modern, güvenli ve kullanıcı dostu kod analiz platformu. Gemini AI ile kodunuzu analiz edin, hataları tespit edin ve refactoring önerileri alın.
+
+## 📸 Ekran Görüntüleri
+
+### 🏠 Ana Ekran
+![Ana Ekran](screenshots/01-main-screen.png)
+
+### 💻 Kod Editörü
+![Kod Editörü](screenshots/02-code-editor.png)
+
+### 📊 Analiz Sonuçları
+![Analiz Sonuçları](screenshots/03-analysis-results.png)
+
+### 📚 Sidebar ve Geçmiş
+![Sidebar ve Geçmiş](screenshots/04-sidebar-history.png)
+
+### 🌐 Dil Seçimi
+![Dil Seçimi](screenshots/05-language-selection.png)
+
+### 🌙 Gece Modu
+![Gece Modu](screenshots/06-dark-mode.png)
+
+### 📱 Mobil Görünüm
+![Mobil Görünüm](screenshots/07-mobile-view.png)
+
+### 📐 Responsive Tasarım
+![Responsive Tasarım](screenshots/08-responsive-design.png)
+
+**Ekran resmi eklemek için:**
+1. Resimlerinizi `screenshots/` klasörüne koyun
+2. `git add screenshots/`
+3. `git commit -m "📸 Ekran resimleri eklendi"`
+4. `git push origin main`
 
 ## ✨ Özellikler
 
